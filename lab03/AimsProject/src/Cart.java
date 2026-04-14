@@ -56,7 +56,7 @@ public class Cart {
         for(int i=0;i<qtyOrdered();i++){
             if(itemOrdered[i]==disc){
 
-                for(int j=i;j<qtyOrdered()-1;i++){
+                for(int j=i;j<qtyOrdered()-1;j++){
                     itemOrdered[j]= itemOrdered[j+1];
                 }
                 itemOrdered[qtyOrdered()]=null;
