@@ -1,17 +1,26 @@
 public class Cart {
     public static  final  int MAX_NUMBERS_ORDERED = 20;
     private DigitalVideoDisc itemOrdered[] = new DigitalVideoDisc[MAX_NUMBERS_ORDERED];
+
     int qtyOrdered(){
-        return itemOrdered.length;
+        int count=0;
+        for(int i=0;i<MAX_NUMBERS_ORDERED;i++){
+            if(itemOrdered[i]!= null){
+                count++;
+            }
+        }
+        return count;
     }
     void addDigitalVideoDisc(DigitalVideoDisc disc){
         int disNumber= qtyOrdered();
+        System.out.println(disNumber);
         if(disNumber>=20){
             System.out.print("The cart is almost full");
             return;
         }
         itemOrdered[disNumber]= disc;
-        System.out.print("The disc has been added");
+
+        System.out.println("The disc has been added");
     }
     void addDigitalVideoDisc(DigitalVideoDisc[] dvdlist){
         int disNumber= qtyOrdered();
@@ -43,7 +52,6 @@ public class Cart {
         itemOrdered[disNumber]= dvd2;
         System.out.print("The 2 disc has been added");
     }
-
     void removeDigitalVideoDisc(DigitalVideoDisc disc){
         for(int i=0;i<qtyOrdered();i++){
             if(itemOrdered[i]==disc){
@@ -58,11 +66,22 @@ public class Cart {
         }
         System.out.print("Nor found");
     }
-    int totalCost(){
-        int total=0;
+    float totalCost(){
+        float total=0;
         for(int i=0;i<qtyOrdered();i++){
             total+=itemOrdered[i].getCost();
         }
         return total;
     }
+    public void PrintList(){
+        System.out.println("***********************CART***********************");
+        System.out.println("Ordered Items:");
+        float totalCost= 0f;
+        for(int i=0; i< qtyOrdered(); i++){
+            System.out.println(itemOrdered[i].toString());
+        }
+        System.out.println("Total cost: "+totalCost());
+        System.out.println("***************************************************");
+    }
+
 }
