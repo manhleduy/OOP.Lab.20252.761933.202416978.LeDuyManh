@@ -1,0 +1,5 @@
+Q: What happen if users choose 'cancel'
+A: this will print "NO"
+
+Q: how to customize the options to user
+A: To only present the Yes No, instead of using the showConfirmDialog we can use JOptionPane.YES_NO_OPTION 
