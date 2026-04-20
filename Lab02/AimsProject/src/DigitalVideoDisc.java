@@ -28,7 +28,7 @@ public class DigitalVideoDisc {
         this.cost = cost;
     }
 
-    public DigitalVideoDisc(float cost, String category, String title) {
+    public DigitalVideoDisc(String title, String category, float cost) {
         this.title= title;
         this.category = category;
         this.cost=cost;
