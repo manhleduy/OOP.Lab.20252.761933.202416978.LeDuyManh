@@ -13,6 +13,8 @@ public class Cart {
         itemOrdered[disNumber]= disc;
         System.out.print("The disc has been added");
     }
+
+
     void removeDigitalVideoDisc(DigitalVideoDisc disc){
         for(int i=0;i<qtyOrdered();i++){
             if(itemOrdered[i]==disc){

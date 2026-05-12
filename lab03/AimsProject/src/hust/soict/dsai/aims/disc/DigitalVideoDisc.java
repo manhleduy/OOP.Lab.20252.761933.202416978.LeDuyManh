@@ -1,15 +1,28 @@
+package hust.soict.dsai.aims.disc;
+
 public class DigitalVideoDisc {
     private String title;
     private String category;
     private String director;
     private int length;
     private float cost;
+    private int id;
+
+    private static int nbdigitalVideoDics=0;
+
+
 
     public String getTitle() {
         return title;
     }
 
     public DigitalVideoDisc(String title) {
+        this.title = title;
+        this.id = nbdigitalVideoDics;
+        nbdigitalVideoDics++;
+    }
+
+    public void setTitle(String title) {
         this.title = title;
     }
 
@@ -19,6 +32,8 @@ public class DigitalVideoDisc {
         this.director = director;
         this.length = length;
         this.cost = cost;
+        this.id=nbdigitalVideoDics;
+        nbdigitalVideoDics++;
     }
 
     public DigitalVideoDisc(String director, String category, String title, float cost) {
@@ -26,12 +41,16 @@ public class DigitalVideoDisc {
         this.category = category;
         this.title = title;
         this.cost = cost;
+        this.id= nbdigitalVideoDics;
+        nbdigitalVideoDics++;
     }
 
-    public DigitalVideoDisc(float cost, String category, String title) {
+    public DigitalVideoDisc(String title, String category, float cost) {
         this.title= title;
         this.category = category;
         this.cost=cost;
+        this.id= nbdigitalVideoDics;
+        nbdigitalVideoDics++;
     }
 
     public String getCategory() {
@@ -49,5 +68,18 @@ public class DigitalVideoDisc {
     public float getCost() {
         return cost;
     }
+    public String toString(){
+        return "DVD"+"-"
+                +this.title +'-'
+                +this.category +'-'
+                +this.director +'-'
+                +this.length+": "
+                +this.cost+"$";
+
+    }
+    public boolean isMatch(String title){
+        return this.title.equals(title);
+    }
+
 
 }
