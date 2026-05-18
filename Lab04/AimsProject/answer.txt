@@ -1,0 +1,27 @@
+Q: Which classes are aggregates of other classes?
+A: Class Media is the aggregate of class Store and Cart
+
+Q: What class should implement the Comparable interface?
+A: these class should include those that have a natural ordering, such as lists, arrays,..
+
+
+Q: In those classes, how should you implement the compareTo()method be to reflect the ordering that we want?
+A: we can use the compareTo() method to define a natural ordering, the return value of this method is 1, 0, -1
+
+Q: Can we have two ordering rules of the item (by title then cost and by cost then title) if we use this
+Comparable interface approach?
+A: No we have to use the Comparator for this fuction because the Comparator interface provide the thenComparing() method
+
+B: Suppose the DVDs has a different ordering rule from the other media types, that is by title, then decreasing
+length, then cost. How would you modify your code to allow this?
+A: we can use these following code
+@Override
+public int compareTo(DVD other) {
+    int titleCompare = this.title.compareToIgnoreCase(other.title);
+    if (titleCompare != 0) return titleCompare;
+
+    int lengthCompare = Integer.compare(other.length, this.length); // Descending length
+    if (lengthCompare != 0) return lengthCompare;
+
+    return Double.compare(this.cost, other.cost);
+}
